@@ -1,0 +1,1 @@
+allIndex(arr, x, 0,0)
