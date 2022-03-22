@@ -1,20 +1,29 @@
-let arr = [7,2,4,2,1,9,2];
-let x = 2;
+let str = "abcd";
+let res = ssq(str);
+console.log(res.sort());
 
-console.log(allIndex(arr, x, 0, 0));
+// let x = str.charAt(0);
+// console.log(x);
 
-function allIndex(arr, x, index, fsf) {
-  if (index == arr.length) {
-    let final = [];
-    return final;
+function ssq(str) {
+  if (str.length == 0) {
+    let sarr = [];
+    sarr.push("");
+    return sarr;
   }
 
-  if (arr[index] == x) {
-    final = allIndex(arr, x, index + 1, fsf + 1);
-    final[fsf] = index;
-    return final;
-  } else {
-    final = allIndex(arr, x, index + 1, fsf);
-    return final;
+  let ch = str.charAt(0);
+  let ros = str.substring(1);
+  let arr = ssq(ros);
+
+  let finalArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    finalArr.push(arr[i]);
+    finalArr.push(ch + arr[i]);
   }
+  // for (let i = 0; i < arr.length; i++) {
+  //   finalArr.push(ch + arr[i]);
+  // }
+
+  return finalArr;
 }
